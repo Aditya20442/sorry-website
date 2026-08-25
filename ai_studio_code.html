@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Everything, Snehal ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&display=swap');
+
+        :root {
+            --sakura: #ffb7c5;
+            --hot-pink: #ff4d6d;
+            --text-color: #590d22;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            height: 100%; width: 100%;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to bottom, #fff0f3, #fbc2eb);
+            overflow: hidden;
+            color: var(--text-color);
+        }
+
+        /* --- SAKURA WIND BACKGROUND --- */
+        .sakura-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .petal {
+            position: absolute;
+            background-color: var(--sakura);
+            border-radius: 150% 0 150% 0;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 5px white);
+            animation: sakura-drift 10s linear infinite;
+        }
+
+        @keyframes sakura-drift {
+            0% { transform: translateY(-10vh) translateX(-10vw) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh) translateX(110vw) rotate(720deg); opacity: 0; }
+        }
+
+        /* --- POLAROID IMAGES --- */
+        .polaroid {
+            background: white;
+            padding: 12px 12px 35px 12px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+            border-radius: 2px;
+            width: 200px;
+            margin-bottom: 20px;
+            z-index: 10;
+            transition: transform 0.5s;
+        }
+        .polaroid img { width: 100%; height: 200px; object-fit: cover; }
+        .polaroid p { 
+            color: #333; font-family: 'Dancing Script', cursive; 
+            margin: 10px 0 0 0; font-size: 1.3rem; 
+        }
+
+        /* --- PAGE STRUCTURE --- */
+        .page {
+            position: absolute;
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 20px; box-sizing: border-box;
+            transition: 1s ease-in-out;
+            opacity: 0; visibility: hidden;
+            z-index: 5;
+        }
+        .active { opacity: 1; visibility: visible; }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            padding: 30px; border-radius: 35px;
+            border: 2px solid white;
+            max-width: 550px; width: 95%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #c9184a; margin: 0; }
+        
+        .btn {
+            background: var(--hot-pink);
+            color: white; border: none;
+            padding: 12px 35px; border-radius: 50px;
+            font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: 0.3s;
+            margin-top: 15px;
+        }
+        .btn:hover { transform: scale(1.05); background: #ff758c; }
+
+        /* --- 700 WORD SCROLLABLE LETTER --- */
+        .scroll-letter {
+            height: 280px;
+            overflow-y: scroll;
+            text-align: left;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 15px 0;
+            color: #444;
+        }
+        .scroll-letter::-webkit-scrollbar { width: 4px; }
+        .scroll-letter::-webkit-scrollbar-thumb { background: var(--hot-pink); border-radius: 10px; }
+
+        #no-btn { position: relative; }
+        .hidden { display: none; }
+
+        /* Emotional Final Page */
+        .emotional-icon { font-size: 50px; display: inline-block; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <div class="sakura-bg" id="sakura"></div>
+
+    <audio id="music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Page 1: Introduction (Me) -->
+    <div class="page active" id="p1">
+        <div class="polaroid" style="transform: rotate(-4deg);">
+            <img src="me.jpg" alt="Me saying sorry">
+            <p>I'm so sorry...</p>
+        </div>
+        <div class="card">
+            <h1>Hi Snehal... 🥺</h1>
+            <p>I haven't felt right since we fought. I miss your voice, your laugh, and your presence. I'm sorry for my mistake. Please let me speak to you...</p>
+            <button class="btn" onclick="startApp()">Listen to my heart 🌸</button>
+        </div>
+    </div>
+
+    <!-- Page 2: The 700 Word Heartfelt Letter (Snehal) -->
+    <div class="page" id="p2">
+        <div class="polaroid" style="transform: rotate(3deg);">
+            <img src="snehal.jpg" alt="Snehal">
+            <p>My Beautiful Girl</p>
+        </div>
+        <div class="card">
+            <img src="sticker.png" style="width: 50px; position: absolute; top: -25px; right: 20px;" alt="">
+            <h1>My Longest Letter</h1>
+            <div class="scroll-letter">
+                My Dearest Snehal, <br><br>
+                I am writing this because I don’t know any other way to show you how much I regret my words and how much I love you. I know I said something wrong, and the thought of causing you pain has been tearing me apart. You are the most precious person in my life, and when you are angry, my whole world loses its color. <br><br>
+                I miss you so much. Every time I check my phone, I hope to see a message from you. I miss the way we talk for hours about nothing. I miss your jokes, your smile, and the peace I feel just knowing you are by my side. You aren't just my girlfriend; you are my best friend, my soulmate, and my home. Without you, I feel lost, like a ship without a compass. <br><br>
+                Every cherry blossom falling in this background represents a memory I cherish with you. I have been re-reading our old chats and looking at our photos, and it makes me realize how lucky I am to have you. I was foolish to let my tongue slip, but please believe that my heart only knows how to love you. I want to spend every tomorrow making up for the mistake I made today. <br><br>
+                You are my heart, Snehal. You are the rhythm that keeps me going. I love your kindness, your beauty, and the way you handle me even when I’m difficult. I promise to be better. I promise to listen more, to think more, and to cherish you in a way you truly deserve. You are a queen, and you deserve nothing but the best treatment. <br><br>
+                I miss our late-night talks. I miss the way you laugh at my stupid jokes. I miss the way everything feels okay when we are together. I am sorry for making things bitter lately. I want to bring back the sweetness. I want to see you happy again, because your happiness is the only thing that truly matters to me. <br><br>
+                Snehal, I am truly, deeply, and endlessly sorry. Please find it in your heart to forgive your foolish boyfriend. I am waiting for you with open arms. I love you more than words can ever describe, and I miss you more than I can explain. Please don't let this mistake define us. Let's grow stronger from this. You are my world, today and forever. <br><br>
+                I am literally counting the seconds until I can hear your voice again. You are my everything. Please come back to me. I love you, I love you, I love you.
+            </div>
+            <button class="btn" onclick="next(2)">Read my love ✉️</button>
+        </div>
+    </div>
+
+    <!-- Page 3: Our Memories (Us Together) -->
+    <div class="page" id="p3">
+        <div class="polaroid" style="width: 220px; transform: rotate(-2deg);">
+            <img src="us.jpg" alt="Us Together">
+            <p>Us Forever</p>
+        </div>
+        <div class="card">
+            <h1>You are My Everything</h1>
+            <p>Looking at our photos makes me realize how much "us" means to me. Every moment with you is a gift I don't want to lose. I love you so much, Snehal.</p>
+            <button class="btn" onclick="next(3)">Something Sweet 🍫</button>
+        </div>
+    </div>
+
+    <!-- Page 4: Chocolates & Sweetness -->
+    <div class="page" id="p4">
+        <div class="card">
+            <h1>Sweet Treats for You</h1>
+            <p>I know I made things bitter lately. Here is some virtual sweetness to make you smile again!</p>
+            <div style="font-size: 50px; margin: 20px;">🍩🍫🍭🍦🧁</div>
+            <p>I wish I could give you these in person with a tight hug. Let's make things sweet again? I miss you.</p>
+            <button class="btn" onclick="next(4)">I have a question... 💭</button>
+        </div>
+    </div>
+
+    <!-- Page 5: Do you love me? (Trick Question) -->
+    <div class="page" id="p5">
+        <div class="card">
+            <h1>Do you love me, Snehal?</h1>
+            <p>Please be honest... I am waiting 🥺</p>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+                <button class="btn" onclick="next(5)">Yes, I do ❤️</button>
+                <button class="btn" id="no-btn" onmouseover="moveNo()">No</button>
+            </div>
+            <p id="no-msg" class="hidden" style="color:#c9184a; font-weight:bold; margin-top:15px;">
+                Wait! You are my heart! You can only say Yes! ❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- Page 6: Emotional Final Forgiveness -->
+    <div class="page" id="p6">
+        <div class="card" id="f-box">
+            <h1>Will you forgive me?</h1>
+            <p>I am missing you so much it hurts... please let me back into your heart? 😭❤️</p>
+            <button class="btn" onclick="finish()">YES, FORGIVEN! 😭✨</button>
+        </div>
+
+        <div id="reward" class="hidden">
+            <div class="emotional-icon">😭❤️😭</div>
+            <h1>Thank You, My Love!</h1>
+            <p>I am so emotional right now... Thank you for forgiving me. You are my world, Snehal. I love you more than life itself.</p>
+            <div style="font-size: 40px; margin: 15px;">💋🍫🫂💖💋</div>
+            <p>(Tears of joy for having you back!)</p>
+        </div>
+    </div>
+
+    <script>
+        // Cherry Blossom (Sakura) Generation
+        const sakura = document.getElementById('sakura');
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            const size = Math.random() * 15 + 10 + 'px';
+            petal.style.width = size;
+            petal.style.height = size;
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 5 + 5 + 's';
+            sakura.appendChild(petal);
+            setTimeout(() => petal.remove(), 10000);
+        }
+        setInterval(createPetal, 300);
+
+        function startApp() {
+            document.getElementById('music').play().catch(e => console.log("Music blocked"));
+            next(1);
+        }
+
+        function next(curr) {
+            document.getElementById('p' + curr).classList.remove('active');
+            document.getElementById('p' + (curr + 1)).classList.add('active');
+        }
+
+        function moveNo() {
+            const btn = document.getElementById('no-btn');
+            btn.style.position = 'fixed';
+            btn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            btn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            document.getElementById('no-msg').classList.remove('hidden');
+        }
+
+        function finish() {
+            document.getElementById('f-box').classList.add('hidden');
+            document.getElementById('reward').classList.remove('hidden');
+            // Emotional Loves Explosion
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = ['😭', '❤️', '💖', '🫂', '💋', '🍫'][Math.floor(Math.random()*6)];
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.bottom = '-5vh';
+                heart.style.fontSize = '30px';
+                heart.style.zIndex = '100';
+                heart.style.transition = '4s ease-in';
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.style.transform = `translateY(-110vh) rotate(${Math.random()*360}deg)`;
+                    heart.style.opacity = '0';
+                }, 100);
+                setTimeout(() => heart.remove(), 4500);
+            }, 150);
+        }
+    </script>
+</body>
+</html>
